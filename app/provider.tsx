@@ -8,6 +8,7 @@ import {
 import { getFullnodeUrl } from "@mysten/sui/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@mysten/dapp-kit/dist/index.css";
+import { SignInProvider } from "./ctx";
 
 // Config options for the networks you want to connect to
 const { networkConfig } = createNetworkConfig({
@@ -23,11 +24,13 @@ export default function Providers({
 }>) {
   return (
     <QueryClientProvider client={queryClient}>
-      <SuiClientProvider networks={networkConfig} defaultNetwork="testnet">
-        <EnokiFlowProvider apiKey={process.env.NEXT_PUBLIC_API_KEY!}>
-          <WalletProvider autoConnect>{children}</WalletProvider>
-        </EnokiFlowProvider>
-      </SuiClientProvider>
+      <SignInProvider>
+        <SuiClientProvider networks={networkConfig} defaultNetwork="testnet">
+          <EnokiFlowProvider apiKey={process.env.NEXT_PUBLIC_API_KEY!}>
+            <WalletProvider autoConnect>{children}</WalletProvider>
+          </EnokiFlowProvider>
+        </SuiClientProvider>
+      </SignInProvider>
     </QueryClientProvider>
   );
 }

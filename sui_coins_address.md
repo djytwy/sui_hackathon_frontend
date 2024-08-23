@@ -1,0 +1,6 @@
+usdc package: 0x20a1afd205d76952d37608f6af6707c4f2271ba45b161cb08734556a30cde9f9
+
+
+sui client split-coin --coin-id 0xb0f19b8d742b7142a93a92220b154c0cb4af65eaa18b99b7fa678e049ef2453a --amounts 10000 200000 --gas-budget 100000000
+
+sui client transfer-sui --to 0xd8791a5514a82cbfe33882616ed619dfc268233474e6bc5b69a30b83b0c03a70 --sui-coin-object-id 0xb0f19b8d742b7142a93a92220b154c0cb4af65eaa18b99b7fa678e049ef2453a --gas-budget 10000000
